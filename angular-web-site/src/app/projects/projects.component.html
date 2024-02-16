@@ -1,1 +1,17 @@
-<p>projects works!</p>
+
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-xs-12 col-md-4 mt-5" >
+            <h3>Projects</h3>
+            <ul class="list-group">
+                <li *ngFor="let project of projects; let i=index;" class="list-group-item" (click)="onSelectProject(i)" style="cursor: pointer" id="{{i}}">
+                    {{ project.name }} 
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-md-8 mt-5 mb-5 px-5" *ngIf="this.project">
+            <app-project [project]=this.project></app-project>
+        </div>
+    </div>
+</div>
+
