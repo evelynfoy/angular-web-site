@@ -1,4 +1,9 @@
 #banner {
-    background-color: #feb8c5;
-    color: darkslategray;
+    background-color: var(--pink);
+    color: var(--darkslategray)
+}
+
+.active {
+    background-color: var(--white);
+    border: var(--turquoise) 1px solid;
 }

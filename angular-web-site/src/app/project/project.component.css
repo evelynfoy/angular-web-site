@@ -1,5 +1,5 @@
 .project {
-    background-color: #F8F9FA;
+    background-color: var(--lightgrey);
     padding: 2rem;
     margin-top: 2rem;;
 }

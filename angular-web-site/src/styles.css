@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+/* Global Variables */
+:root {
+    --pink:#feb8c5;
+    --darkslategray: darkslategray;
+    --turquoise: #3eb3a7;
+    --lightgrey: #F8F9FA;
+    --white: white;
+    --black: black;
+
+}
