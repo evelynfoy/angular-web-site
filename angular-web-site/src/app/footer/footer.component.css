@@ -1,6 +1,7 @@
 #footer {
-    background-color: #feb8c5;
     color: darkslategray;
+    padding-top: 1rem; 
+    border-top: #feb8c5 3px solid
 }
 
 .linkedinicon {
