@@ -1,9 +1,9 @@
 #footer {
-    color: darkslategray;
+    color: var(--darkslategray) ;
     padding-top: 1rem; 
-    border-top: #feb8c5 3px solid
+    border-top: var(--pink) 3px solid
 }
 
 .linkedinicon {
-    color: #3eb3a7;
+    color: var(--turquoise) ;
 }
