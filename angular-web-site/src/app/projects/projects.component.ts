@@ -19,18 +19,21 @@ export class ProjectsComponent implements OnInit {
       name: 'Recipes',
       description: 'This is a project I built from a starting setup supplied by the angular course I studied - Angular - The Complete Guide (2024 Edition)',
       githubUrl: 'https://github.com/evelynfoy/angular-recipes-app-2024',
+      websiteUrl: 'https://angular-recipes-76bed.web.app/recipes',
     }
 
     this.projects[1] = {
       name: 'This website',
       description: 'I wrote this website in Angular as a practise site',
       githubUrl: 'https://github.com/evelynfoy/angular-web-site',
+      websiteUrl: 'https://my-angular-website-730f3.web.app/',
     }
 
     this.projects[2] = {
       name: 'The Cheese and Wine Boutique',
       description: 'The Cheese and Wine Boutique is an e-commerce project implemented in django with full CRUD functionality and a PostgresSQL Database backend. It uses Stripe for payments.',
-      githubUrl: 'https://github.com/evelynfoy/the-cheese-and-wine-boutique'
+      githubUrl: 'https://github.com/evelynfoy/the-cheese-and-wine-boutique',
+      websiteUrl: 'https://cheese-wine-boutique.onrender.com/',
     }
 
     this.projectNumber = 0;

@@ -3,3 +3,8 @@
     padding: 2rem;
     margin-top: 2rem;;
 }
+
+a {
+    color: var(--darkorchid);
+
+}
