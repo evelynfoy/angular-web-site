@@ -1,12 +1,18 @@
-<div class="project">
-    <!-- <p>Project Details</p> -->
-    <p >
-        Project Name: {{ this.project.name }}
-    </p>
-    <p >
-        Project Description: {{ this.project.description }}
-    </p>
-    <p >
-        Github Url: {{ this.project.githubUrl }}
-    </p>
+<div class="project row">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3> {{ this.project.name }} </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+           {{ this.project.description }} 
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-xs-12">
+           Github: {{ this.project.githubUrl }} 
+        </div>
+    </div>
+    <p></p>
 </div>
