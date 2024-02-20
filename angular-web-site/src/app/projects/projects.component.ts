@@ -20,6 +20,7 @@ export class ProjectsComponent implements OnInit {
       description: 'This is a project I built from a starting setup supplied by the angular course I studied - Angular - The Complete Guide (2024 Edition)',
       githubUrl: 'https://github.com/evelynfoy/angular-recipes-app-2024',
       websiteUrl: 'https://angular-recipes-76bed.web.app/recipes',
+      imagePath: 'assets/images/recipes.png'
     }
 
     this.projects[1] = {
@@ -27,6 +28,7 @@ export class ProjectsComponent implements OnInit {
       description: 'I wrote this website in Angular as a practise site',
       githubUrl: 'https://github.com/evelynfoy/angular-web-site',
       websiteUrl: 'https://my-angular-website-730f3.web.app/',
+      imagePath: 'assets/images/web-site.png'
     }
 
     this.projects[2] = {
@@ -34,6 +36,7 @@ export class ProjectsComponent implements OnInit {
       description: 'The Cheese and Wine Boutique is an e-commerce project implemented in django with full CRUD functionality and a PostgresSQL Database backend. It uses Stripe for payments.',
       githubUrl: 'https://github.com/evelynfoy/the-cheese-and-wine-boutique',
       websiteUrl: 'https://cheese-wine-boutique.onrender.com/',
+      imagePath: 'assets/images/cheese-wine.png'
     }
 
     this.projectNumber = 0;

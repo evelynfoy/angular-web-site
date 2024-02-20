@@ -8,3 +8,38 @@ a {
     color: var(--darkorchid);
 
 }
+
+img {
+    max-height: 100px;
+} 
+
+@media (min-width: 375px) {
+    img {
+        max-height: 125px;
+    } 
+}
+
+@media (min-width: 425px) {
+    img {
+        max-height: 150px;
+    } 
+}
+
+@media (min-width: 576px) {
+    img {
+        max-height: 150px;
+    } 
+}
+
+@media (min-width: 768px) {
+    img {
+        max-height: 200px;
+    } 
+}
+
+@media (min-width: 992px) { 
+    img {
+        max-height: 300px;;
+    }    
+ }
+
