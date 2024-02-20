@@ -3,4 +3,5 @@ export class Project {
     description: string;
     githubUrl: string; 
     websiteUrl: string;
+    imagePath: string;
 }

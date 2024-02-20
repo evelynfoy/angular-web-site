@@ -9,11 +9,20 @@
            {{ project.description }} 
         </div>
     </div>
+    <div class="row mt-3 text-center">
+        <div class="col-xs-12">
+            <img 
+            [src]="project.imagePath" 
+            alt="{{project.name}}" 
+            class="img-responsive">
+        </div>
+    </div>
     <div class="row mt-3">
         <div class="col-xs-12">
            Github: <a href="{{ project.githubUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">{{ project.githubUrl }} </a>
         </div>
     </div>
+    
     <div class="row mt-3">
         <div class="col-xs-12">
             Website: <a href="{{ project.websiteUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">{{ project.websiteUrl }} </a>
