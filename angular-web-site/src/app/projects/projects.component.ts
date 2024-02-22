@@ -63,6 +63,18 @@ export class ProjectsComponent implements OnInit {
       imagePath: 'assets/images/fun-online-quiz-game.png'
     }
 
+    this.projects[5] = {
+      name: 'Shopping List Compiler',
+      description: 'This is a Python command line application which runs in a mock terminal.' + 
+      'It compiles a shopping list for cake store orders.' + 
+      'The recipes available to order are held on Google Sheets with ingredient quantities required.' +
+      'The application takes the days orders and then calculates out the quantity of ingredients required and  ' + 
+      'updates the store stock levels that are also held in Google Sheets.',
+      githubUrl: 'https://github.com/evelynfoy/shopping-list-compiler',
+      websiteUrl: 'https://shopping-list-compiler.onrender.com/',
+      imagePath: 'assets/images/shopping-list-compiler.png'
+    }
+
 
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
