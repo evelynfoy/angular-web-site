@@ -39,6 +39,19 @@ export class ProjectsComponent implements OnInit {
       imagePath: 'assets/images/cheese-wine.png'
     }
 
+    this.projects[3] = {
+      name: 'Animal Hostel',
+      description: 'Animal Hostel is a website that enables people to offer a home to a homeless animal. The home page shows photos of the animals currently at the' + 
+      'hostel as well as a short description of what the website is about. Users can browse the current occupancy but to make an offer they need to register and log in.' + 
+      'Once logged in they can view, edit or delete their offers as well as see the status of the offers. They can also specify whether their interest is in fostering ' +
+      'or adopting. The goal of the site is to find owners for these poor unfortunate homeless animals. The administrator can add and maintain the animals and approve' + 
+      ' or reject the offers. It is built using Django. It is hosted on render which currently can be very slow to load so please be patient it will load.',
+      githubUrl: 'https://github.com/evelynfoy/animal-hostel',
+      websiteUrl: 'https://animal-hostel.onrender.com/',
+      imagePath: 'assets/images/animal-hostel.png'
+    }
+
+
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
   }
