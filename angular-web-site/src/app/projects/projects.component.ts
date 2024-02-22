@@ -51,6 +51,18 @@ export class ProjectsComponent implements OnInit {
       imagePath: 'assets/images/animal-hostel.png'
     }
 
+    this.projects[4] = {
+      name: 'Fun Online Quiz Game',
+      description: 'This project is to build a fun Online Quiz game. It should provide entertainment for its audience. It targets all ages' + 
+      'who like quizzes. This is a fully responsive quiz game that supplies as many questions as the user decides. It allows' + 
+      'them to pick a level and a topic. It has a score tracking system that keeps track of the score as they go through the ' +
+      'questions and provides feedback after each question. They can restart the game at any time if they choose to change' + 
+      'the topic or level. The game uses an API to get the requested number of questions and the categories available to be selected. https://opentdb.com',
+      githubUrl: 'https://github.com/evelynfoy/fun-online-quiz-game',
+      websiteUrl: 'https://evelynfoy.github.io/fun-online-quiz-game/',
+      imagePath: 'assets/images/fun-online-quiz-game.png'
+    }
+
 
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
