@@ -87,6 +87,14 @@ export class ProjectsComponent implements OnInit {
       imagePath: 'assets/images/scec-mockup.png'
     }
 
+    this.projects[7] = {
+      name: 'My old website',
+      description: 'This is a website I wrote previously. It is hosted on Microsoft Azure and contains various projects.', 
+      websiteUrl: 'http://evelynsprojects.azurewebsites.net/',
+      githubUrl: 'Not on github',
+      imagePath: 'assets/images/my-previous-website.png'
+    }
+
 
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
