@@ -75,6 +75,18 @@ export class ProjectsComponent implements OnInit {
       imagePath: 'assets/images/shopping-list-compiler.png'
     }
 
+    this.projects[6] = {
+      name: 'Southern Cross Equestrian Center',
+      description: 'This is a website for a fictional Equestrian Center. It was my first ' + 
+      'project for the Professional Diploma in Full Stack Development that I completed in 2022.' + 
+      'It is written in HTML and CSS and hosted on github.' +
+      'It displays information and images relevant to a riding school and its goal is to advertise the ' + 
+      'business and encourage people to get in touch.',
+      githubUrl: 'https://github.com/evelynfoy/southern-cross-equestrian-center',
+      websiteUrl: 'https://evelynfoy.github.io/southern-cross-equestrian-center/',
+      imagePath: 'assets/images/scec-mockup.png'
+    }
+
 
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
