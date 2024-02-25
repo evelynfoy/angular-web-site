@@ -6,3 +6,31 @@ a {
     color: var(--darkorchid);
 
 }
+
+img#udemy {
+    max-height: 150px;
+} 
+
+@media (min-width: 375px) {
+    img#udemy {
+        max-height: 200px;
+    } 
+}
+
+@media (min-width: 425px) {
+    img#udemy {
+        max-height: 200px;
+    } 
+}
+
+@media (min-width: 768px) {
+    img#udemy {
+        max-height: 300px;
+    } 
+}
+
+@media (min-width: 992px) { 
+    img#udemy {
+        max-height: 300px;;
+    }    
+ }
