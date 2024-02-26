@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project/project.model';
-import { ProjectService } from './project.sservice';
+import { ProjectsService } from './projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -13,11 +13,14 @@ export class ProjectsComponent implements OnInit {
   projectNumber: number = 0;
   project: Project;
 
-  constructor( private projectService: ProjectService ) { }
+  constructor( private projectsService: ProjectsService ) { }
 
   ngOnInit(): void {
-    
-    this.projects = this.projectService.getProjects();
+    this.projectsService.getProjects().subscribe(
+      data => {
+        this.projects = data;
+      }
+    );
 
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
@@ -33,8 +36,6 @@ export class ProjectsComponent implements OnInit {
     }
     const listItem = document.getElementById(this.projectNumber.toString());
     listItem.classList.add('active')
-
   }
-
 
 }
