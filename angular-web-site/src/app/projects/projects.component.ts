@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project/project.model';
 import { ProjectsService } from './projects.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -14,12 +13,11 @@ export class ProjectsComponent implements OnInit {
   projectNumber: number = 0;
   project: Project;
   error = null;
-  private errorSub: Subscription;
 
   constructor( private projectsService: ProjectsService ) { }
 
   ngOnInit(): void {
-
+    
     // Get projects and set error message on error
     this.projectsService.getProjects().subscribe({ 
       next: data =>  this.projects = data ,

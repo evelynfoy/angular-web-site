@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './project/project.component';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProjectsComponent,
     HomeComponent,
-    ProjectComponent
+    ProjectComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
