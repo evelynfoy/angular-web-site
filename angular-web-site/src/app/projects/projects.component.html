@@ -12,6 +12,9 @@
         <div class="col-xs-12 col-md-8 mt-5 mb-5 px-5" *ngIf="this.project">
             <app-project [project]=this.project></app-project>
         </div>
+        <div class="col-xs-12 col-md-8 mt-5 mb-5 px-5" *ngIf="this.isLoggedIn">
+            <button class="btn btn-secondary">Add Project</button>
+        </div>
     </div>
 </div>
 <div class="row">

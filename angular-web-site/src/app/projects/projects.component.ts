@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project/project.model';
 import { ProjectsService } from './projects.service';
+import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,16 +15,24 @@ export class ProjectsComponent implements OnInit {
   projectNumber: number = 0;
   project: Project;
   error = null;
-  private errorSub: Subscription;
+  sub: Subscription;
+  isLoggedIn: boolean;
 
-  constructor( private projectsService: ProjectsService ) { }
+  constructor( private projectsService: ProjectsService, private authService: AuthService  ) { }
 
   ngOnInit(): void {
-
+    
     // Get projects and set error message on error
     this.projectsService.getProjects().subscribe({ 
       next: data =>  this.projects = data ,
       error: error => this.error = error.message
+      }
+    );
+
+    // Subscribe to changes in log in status
+    this.sub = this.authService.loggedIn.subscribe(
+      loggedIn => {
+        this.isLoggedIn = loggedIn;
       }
     );
 
