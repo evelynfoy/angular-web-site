@@ -1,31 +1,56 @@
 <div class="container-fluid">
-    <div class="row" id="banner">
-        <div class="col-md-12 mt-5 mb-5 px-5">
-            <h1>Evelyn's Website</h1>
-        </div>
+  <div class="row" id="banner">
+    <div class="col-md-12 mt-5 mb-5 px-5">
+      <h1>Evelyn's Website</h1>
     </div>
+  </div>
 </div>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-      <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" >
-            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            routerLink="/" (click)="isMenuCollapsed = true" aria-current="page" >Home</a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" routerLinkActive="active" routerLink="/projects" (click)="isMenuCollapsed = true" aria-current="page">Projects</a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" routerLinkActive="active" routerLink="/auth" (click)="isMenuCollapsed = true" aria-current="page">Login/Register</a>
-          </li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            (click)="isMenuCollapsed = true"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/projects"
+            (click)="isMenuCollapsed = true"
+            aria-current="page"
+            >Projects</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/auth"
+            (click)="isMenuCollapsed = true"
+            aria-current="page"
+            >{{ isLoggedIn ? "Logout" : "Login" }}</a
+          >
+        </li>
+      </ul>
     </div>
-  </nav>
-   
+  </div>
+</nav>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -16,8 +17,7 @@ export class AuthComponent implements OnInit {
   password: string;
   error: false;
 
-
-  constructor( private http: HttpClient, private router: Router) { }
+  constructor( private http: HttpClient, private router: Router, private authService: AuthService ) { }
 
   ngOnInit(): void {
   }
@@ -41,14 +41,18 @@ export class AuthComponent implements OnInit {
       returnSecureToken: true
     }).subscribe( {
         next: res => {
-          console.log(res);
           this.router.navigate(['/projects']);
+          this.authService.loggedIn.next(true);
         },
         error: error => {
           this.error = error.error.error.message;
         }
       }
     )
+  }
+
+  logout() {
+    this.authService.loggedIn.next(false);
   }
 
   onHandleError() {
