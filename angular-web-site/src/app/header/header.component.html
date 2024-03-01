@@ -40,14 +40,22 @@
             >Projects</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn" style="cursor: pointer;">
+          <a
+            class="nav-link"
+            (click)="onLogout()"
+            aria-current="page"
+            >Logout</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a
             class="nav-link"
             routerLinkActive="active"
             routerLink="/auth"
-            (click)="isMenuCollapsed = true"
+            (click)="this.isMenuCollapsed = true;"
             aria-current="page"
-            >{{ isLoggedIn ? "Logout" : "Login" }}</a
+            >Login</a
           >
         </li>
       </ul>
