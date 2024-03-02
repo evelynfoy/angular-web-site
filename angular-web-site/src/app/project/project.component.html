@@ -18,14 +18,20 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-xs-12">
+        <div class="d-none d-sm-block">
            Github: <a href="{{ project.githubUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">{{ project.githubUrl }} </a>
+        </div>
+        <div class="col-xs-12 text-center d-block d-sm-none">
+           <a href="{{ project.githubUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">Github </a>
         </div>
     </div>
     
     <div class="row mt-3">
-        <div class="col-xs-12">
+        <div class="d-none d-sm-block">
             Website: <a href="{{ project.websiteUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">{{ project.websiteUrl }} </a>
+        </div>
+        <div class="col-xs-12 text-center d-block d-sm-none">
+            <a href="{{ project.websiteUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">Website</a>
         </div>
     </div>
 </div>
