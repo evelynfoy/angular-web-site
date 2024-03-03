@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Project } from '../project/project.model';
 import { ProjectsService } from './projects.service';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
 
   projects: Project[] = [];
   projectNumber: number = 0;
   project: Project;
   error = null;
   sub: Subscription;
+  subChangedProjects: Subscription;
   isLoggedIn: boolean;
 
-  constructor( private projectsService: ProjectsService, private authService: AuthService  ) { }
+  constructor( private projectsService: ProjectsService, private authService: AuthService, private router:Router, private route: ActivatedRoute  ) { }
 
   ngOnInit(): void {
     
+    this.subChangedProjects = this.projectsService.projectsChanged.subscribe(
+      (projects: Project[]) => {
+        this.projects = projects;
+      }
+    );
+
     // Get projects and set error message on error
     this.projectsService.getProjects().subscribe({ 
       next: data =>  this.projects = data ,
@@ -35,6 +43,8 @@ export class ProjectsComponent implements OnInit {
         this.isLoggedIn = loggedIn;
       }
     );
+
+    
 
     //display first project in array initially
     this.projectNumber = 0;
@@ -54,8 +64,17 @@ export class ProjectsComponent implements OnInit {
     listItem.classList.add('active')
   }
 
+  onAddProject() {
+    this.router.navigate(['add'], {relativeTo: this.route});
+  }
+
   onHandleError() {
     // Clears error once Close button is clicked
     this.error = null;
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe
+    this.subChangedProjects.unsubscribe();
   }
 }
