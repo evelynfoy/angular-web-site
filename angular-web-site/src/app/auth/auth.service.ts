@@ -11,6 +11,7 @@ export class AuthService {
     // Define a behavior subject that other modules can subscribe to in order to know when 
     // there has been a change of login state.
     loggedIn = new BehaviorSubject<boolean>(null);
+    isAdministrator = false;
 
     constructor( private router: Router, private http:HttpClient ) {}
 
@@ -26,6 +27,10 @@ export class AuthService {
           catchError( this.handleError ),
           tap ( res => {
               this.loggedIn.next(true);
+              if (email === "guest@guest.com" )
+                this.isAdministrator = false;
+              else
+                this.isAdministrator = true;
             }
           )
       );

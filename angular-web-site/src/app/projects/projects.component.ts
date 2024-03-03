@@ -44,8 +44,6 @@ export class ProjectsComponent implements OnInit, OnDestroy {
       }
     );
 
-    
-
     //display first project in array initially
     this.projectNumber = 0;
     this.project = this.projects[this.projectNumber];
@@ -66,6 +64,14 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   onAddProject() {
     this.router.navigate(['add'], {relativeTo: this.route});
+  }
+
+  isGuest(project) {
+    // Guest projects only shown if logged in 
+    if (project.name.includes('Guest:') && !this.isLoggedIn)
+      return false;
+    else 
+      return true;
   }
 
   onHandleError() {

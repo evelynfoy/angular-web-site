@@ -4,9 +4,12 @@
         <div class="col-xs-12 col-md-4 mt-5" >
             <h2>Projects</h2>
             <ul class="list-group">
-                <li *ngFor="let project of projects; let i=index;" class="list-group-item" (click)="onSelectProject(i)" style="cursor: pointer" id="{{i}}">
-                    {{ project.name }} 
-                </li>
+                <ng-container *ngFor="let project of projects; let i=index;" >
+                    <li *ngIf="isGuest(project)" class="list-group-item" (click)="onSelectProject(i)" style="cursor: pointer" id="{{i}}">
+                        {{ project.name }} 
+                    </li>
+                </ng-container>
+                
             </ul>
         </div>
         <div class="col-xs-12 col-md-8 mt-5 mb-5 px-5" *ngIf="this.project">
