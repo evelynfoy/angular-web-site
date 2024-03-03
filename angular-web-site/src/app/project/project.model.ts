@@ -4,5 +4,4 @@ export class Project {
     githubUrl: string; 
     websiteUrl: string;
     imagePath: string;
-    id?: string;
 }
