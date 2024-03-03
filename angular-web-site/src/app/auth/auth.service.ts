@@ -31,6 +31,8 @@ export class AuthService {
                 this.isAdministrator = false;
               else
                 this.isAdministrator = true;
+              localStorage.setItem('loggedIn', JSON.stringify(true));
+              localStorage.setItem('isAdministrator', JSON.stringify(this.isAdministrator));
             }
           )
       );
@@ -52,8 +54,21 @@ export class AuthService {
       });
     }
 
+    autoLogin() {
+      const loggedIn = JSON.parse(localStorage.getItem('loggedIn')) 
+      const isAdministrator = JSON.parse(localStorage.getItem('isAdministrator')) 
+      if (!loggedIn) {
+        return
+      } else {
+        this.loggedIn.next(true);
+        this.isAdministrator = isAdministrator;
+      }
+    }
+
     logout() {
         this.loggedIn.next(false);
         this.router.navigate(['/']);
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('isAdministrator');
       }
 }
