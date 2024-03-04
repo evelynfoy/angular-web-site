@@ -31,4 +31,17 @@ export class ProjectComponent implements OnInit {
   onEditProject() {
     this.router.navigate([ this.projectNumber ,'edit'], {relativeTo: this.route});
   }
+
+  allowEdit() {
+    if (!this.isLoggedIn)
+      return false
+    else 
+      if (this.authService.isAdministrator)
+        return true
+      else
+        if (this.project.name.includes('Guest:'))
+          return true
+        else
+          return false
+  }
 }
