@@ -71,9 +71,10 @@ export class ProjectEditComponent implements OnInit {
   }
 
   onCancel() {
-    if (this.editMode)
-      this.router.navigate(['../../'], {relativeTo:this.route});
-    else
-      this.router.navigate(['../'], {relativeTo:this.route});
+    this.router.navigate(['../../'], {relativeTo:this.route});
+  //   if (this.editMode)
+  //     this.router.navigate(['../../'], {relativeTo:this.route});
+  //   else
+  //     this.router.navigate(['../'], {relativeTo:this.route});
   }
 }

@@ -45,8 +45,17 @@ export class ProjectsService {
                     });
     }
 
-    saveProject(project: Project) {
+    deleteProject(id:number) {
+        this.projectsArray.splice(id,1);
+        this.http
+            .put<Project[]>('https://my-angular-website-730f3-default-rtdb.europe-west1.firebasedatabase.app/projects.json', this.projectsArray)
+                .subscribe(
+                    response => {
+                        this.projectsChanged.next(response.slice())
+                    });
+    }
 
+    saveProject(project: Project) {
         this.projectsArray.push(project);
         this.http
             .put<Project[]>('https://my-angular-website-730f3-default-rtdb.europe-west1.firebasedatabase.app/projects.json', this.projectsArray)

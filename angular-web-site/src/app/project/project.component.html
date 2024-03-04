@@ -33,8 +33,9 @@
             <a href="{{ project.websiteUrl }} " target="_blank" rel="noopener" aria-label="Visit the project website here">Website</a>
         </div>
     </div>
-    <div class="col-xs-12 col-md-8 mt-5 mb-5 px-5" *ngIf="allowEdit()">
-        <button class="btn btn-secondary" (click)="onEditProject()">Edit Project</button>
+    <div class="text-center mt-5" *ngIf="allowEdit()">
+        <button class="btn btn-secondary me-5" (click)="onEditProject() ">Edit</button>
+        <button class="btn btn-secondary" (click)="onDeleteProject()">Delete</button>
     </div>
 </div>
 

@@ -13,7 +13,7 @@ import { ProjectsService } from '../projects/projects.service';
 export class ProjectComponent implements OnInit {
 
   @Input() project : Project;
-  @Input() projectNumber : Number;
+  @Input() projectNumber : number;
   sub: Subscription;
   isLoggedIn:boolean;
   id: number;
@@ -30,6 +30,15 @@ export class ProjectComponent implements OnInit {
 
   onEditProject() {
     this.router.navigate([ this.projectNumber ,'edit'], {relativeTo: this.route});
+  }
+
+  onDeleteProject() {
+    this.projectService.deleteProject(this.projectNumber);
+    this.router.navigate(["/"]);
+  //   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(["/projects"]);
+  // }); 
+    
   }
 
   allowEdit() {
