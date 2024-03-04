@@ -13,6 +13,7 @@ const routes: Routes = [
   children: [
     { path: '', component: ProjectsComponent },
     { path: 'add', component: ProjectEditComponent, canActivate: [AuthGuard] },
+    { path: ':id/edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
   ] },
   
 ];
@@ -22,8 +23,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-
-  
 
 }
 

@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Project } from './project.model';
+import { AuthService } from '../auth/auth.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectsService } from '../projects/projects.service';
 
 @Component({
   selector: 'app-project',
@@ -9,11 +13,22 @@ import { Project } from './project.model';
 export class ProjectComponent implements OnInit {
 
   @Input() project : Project;
+  @Input() projectNumber : Number;
+  sub: Subscription;
+  isLoggedIn:boolean;
+  id: number;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router:Router, private route:ActivatedRoute, private projectService:ProjectsService) { }
 
   ngOnInit(): void {
-    console.log(this.project)
+    this.sub =  this.authService.loggedIn.subscribe(
+      loggedIn => {
+        this.isLoggedIn = loggedIn;
+      }
+    );
   }
 
+  onEditProject() {
+    this.router.navigate([ this.projectNumber ,'edit'], {relativeTo: this.route});
+  }
 }
