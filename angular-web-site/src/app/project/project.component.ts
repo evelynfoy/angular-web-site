@@ -34,10 +34,9 @@ export class ProjectComponent implements OnInit {
 
   onDeleteProject() {
     this.projectService.deleteProject(this.projectNumber);
-    this.router.navigate(["/"]);
-  //   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-  //     this.router.navigate(["/projects"]);
-  // }); 
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(["/projects"]);
+  }); 
     
   }
 
