@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../projects/projects.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Project } from '../project/project.model';
 
 @Component({
@@ -38,14 +38,13 @@ export class ProjectEditComponent implements OnInit {
   }
 
   private populateForm() {
-
     if (this.editMode) {
-      const project = this.projectService.getProject(this.id);
-      this.defaultName = project.name;
-      this.defaultDescription = project.description;
-      this.defaultImageUrl = project.imagePath;
-      this.defaultGithub = project.githubUrl;
-      this.defaultWebsite = project.websiteUrl;
+      this.project = this.projectService.getProject(this.id);
+      this.defaultName = this.project.name;
+      this.defaultDescription = this.project.description;
+      this.defaultImageUrl = this.project.imagePath;
+      this.defaultGithub = this.project.githubUrl;
+      this.defaultWebsite = this.project.websiteUrl;
     }
   }
 
@@ -71,10 +70,9 @@ export class ProjectEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../../'], {relativeTo:this.route});
-  //   if (this.editMode)
-  //     this.router.navigate(['../../'], {relativeTo:this.route});
-  //   else
-  //     this.router.navigate(['../'], {relativeTo:this.route});
+    if (this.editMode)
+      this.router.navigate(['../../'], {relativeTo:this.route});
+    else
+      this.router.navigate(['../'], {relativeTo:this.route});
   }
 }

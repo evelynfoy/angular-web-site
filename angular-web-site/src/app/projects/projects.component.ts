@@ -20,24 +20,36 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   subChangedProjects: Subscription;
   isLoggedIn: boolean;
 
-  constructor( private projectsService: ProjectsService, private authService: AuthService, private router:Router, private route: ActivatedRoute  ) { }
+  constructor( private projectsService: ProjectsService, private authService: AuthService, private router:Router, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     
+    // Get projects from service
+    this.projects = this.projectsService.getProjects();
+
+    // If no projects in service then get from database
+    if (this.projects.length === 0) {
+      this.projectsService.fetchprojects().subscribe(
+        {
+          next: data => {
+            this.projects = data;
+          },
+          error: error => {
+            if (error.error.error == '404 Not Found') {
+              this.error = 'The database is currently unavailable. Please try again later.'
+            }
+          }
+        }
+      );
+    }
+
     this.subChangedProjects = this.projectsService.projectsChanged.subscribe(
       (projects: Project[]) => {
         this.projects = projects;
       }
     );
 
-    // Get projects and set error message on error
-    this.projectsService.getProjects().subscribe({ 
-      next: data =>  this.projects = data ,
-      error: error => this.error = error.message
-      }
-    );
-
-    // Subscribe to changes in log in status
+     // Subscribe to changes in log in status
     this.sub = this.authService.loggedIn.subscribe(
       loggedIn => {
         this.isLoggedIn = loggedIn;
