@@ -37,6 +37,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
           error: error => {
             if (error.error.error == '404 Not Found') {
               this.error = 'The database is currently unavailable. Please try again later.'
+            } else {
+              this.projectsService.setProjects(this.projects)
             }
           }
         }
